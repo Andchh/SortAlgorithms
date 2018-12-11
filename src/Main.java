@@ -26,8 +26,13 @@ public final class Main {
 			entry[i] = s.nextInt();
 		}
 		selectionSort(entry);
-		System.out.println("Organizado, imprimindo array:\n");
-		
+		System.out.println("Organizado com Selection Sort e imprimindo array:\n");
+		for(int j = 0; j < entry.length; j++){
+			System.out.print(entry[j]+"\n");
+		}
+		insectionSort(entry);
+		System.out.println("Organizado com Insection Sort e imprimindo array:\n");
+
 		for(int j = 0; j < entry.length; j++){
 			System.out.print(entry[j]+"\n");
 		}
@@ -57,4 +62,24 @@ public final class Main {
 		
 	}
 
+	public static void insectionSort(int[] list){
+		
+		int i, j, pri;  // pri é o elemento atual a ser analisado para ser realocado para organização
+		
+		for(j = 1; j < list.length; j++){ //percorre o vetor da esquerda para a direita, começando do segundo.
+			
+			pri = list[j]; //pri recebe o valor da segunda variavel da lista, para trocar futuramente
+			
+			for(i = j -1; (i >= 0) && (list[i] > pri); i--){ //for para comparar o elemento atual com os anteriores
+				
+				list[i+1] = list[i]; // caso encontre um valor > pri que esta sendo comparado, então ocorre a atribuição
+				
+			}
+		list[i+1] = pri; //troca o valor que tinhamos na casa analisada pela casa que foi trocada;
+			
+		}
+		
+	}
+	
+	
 }
